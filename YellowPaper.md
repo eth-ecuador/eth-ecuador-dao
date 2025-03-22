@@ -94,9 +94,10 @@ La gestión del tesoro y la administración de la DAO se realizará mediante una
 
 - **Nombre y Símbolo**: LATA
 - **Descripción**: Inspirado en la expresión coloquial ecuatoriana para referirse a la moneda "Sucre"
-- **Estándar**: ERC-20 en Arbitrum
+- **Estándar**: ERC-20 con extensión ERC-20Votes en Arbitrum
 - **Divisibilidad**: 18 decimales
 - **Suministro Total Inicial**: 10,000 LATA
+- **Características Especiales**: Sistema de delegación de votos integrado
 
 #### 4.1.2 Distribución Inicial
 
@@ -211,6 +212,25 @@ stateDiagram-v2
 - **Quórum**: 10% de tokens participantes requeridos
 - **Umbral de Aprobación**: 51% de votos afirmativos necesarios
 
+#### 5.1.4 Delegación de Votos
+
+```mermaid
+graph LR
+    A[Titular de LATA] -->|Delega poder de voto| B[Delegado]
+    B -->|Vota en nombre de| A
+    B -->|Mantiene sus propios votos| C[Votación]
+    A -->|Mantiene propiedad de tokens| D[Tokens LATA]
+```
+
+EthEcuador DAO implementa un sistema de delegación de votos que permite a los miembros transferir su poder de voto a otros participantes sin ceder la propiedad de sus tokens. Características principales:
+
+- **Delegación Flexible**: Cualquier titular de LATA puede delegar su poder de voto a otro miembro
+- **Revocación en Cualquier Momento**: La delegación puede ser revocada por el titular original cuando lo desee
+- **Delegación Parcial o Total**: Posibilidad de delegar solo una parte de los tokens
+- **Transparencia**: Todas las delegaciones quedan registradas en la blockchain y son públicamente verificables
+- **Sin Transferencia de Propiedad**: El delegante mantiene la propiedad completa de sus tokens
+- **Delegación Transitiva**: Un delegado puede a su vez delegar los votos recibidos (configurable según preferencia comunitaria)
+
 ### 5.2 Gestión del Tesoro
 
 #### 5.2.1 Billetera Multi-firma
@@ -269,13 +289,13 @@ Las recompensas por contribuciones meritocráticas serán significativamente may
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
-contract LataToken is ERC20, AccessControl {
+contract LataToken is ERC20Votes, AccessControl {
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     
-    constructor() ERC20("Lata", "LATA") {
+    constructor() ERC20("Lata", "LATA") ERC20Permit("Lata") {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(MINTER_ROLE, msg.sender);
         
@@ -286,6 +306,19 @@ contract LataToken is ERC20, AccessControl {
     
     function mint(address to, uint256 amount) public onlyRole(MINTER_ROLE) {
         _mint(to, amount);
+    }
+    
+    // The following functions are overrides required by Solidity
+    function _afterTokenTransfer(address from, address to, uint256 amount) internal override(ERC20Votes) {
+        super._afterTokenTransfer(from, to, amount);
+    }
+
+    function _mint(address to, uint256 amount) internal override(ERC20Votes) {
+        super._mint(to, amount);
+    }
+
+    function _burn(address account, uint256 amount) internal override(ERC20Votes) {
+        super._burn(account, amount);
     }
 }
 ```
