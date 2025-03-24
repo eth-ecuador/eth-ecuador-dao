@@ -77,9 +77,9 @@ flowchart TB
    - Distribución de pagos a ejecutores
    - Contribución automática del 10% al tesoro
 
-### 3.4 Billetera Multi-firma
+### 3.4 Consejo de Gobernanza y Billetera Multi-firma
 
-La gestión del tesoro y la administración de la DAO se realizará mediante una billetera multi-firma en Arbitrum, controlada por los miembros más activos del proyecto. **La convocatoria para formar parte de este equipo activo de la DAO, que serán los firmantes de la billetera multifirma, fue realizada a través del canal de Telegram del equipo núcleo.** Esta billetera tendrá la capacidad de:
+La gestión del tesoro y la administración de la DAO se realizará mediante un Consejo de Gobernanza que utilizará una billetera multi-firma en Arbitrum para ejecutar las decisiones aprobadas. **La convocatoria para formar parte de este consejo administrativo, cuyos miembros serán los firmantes de la billetera multifirma, fue realizada a través del canal de Telegram del equipo núcleo.** Este consejo y su billetera asociada tendrán la capacidad de:
 
 - Ejecutar decisiones aprobadas mediante votación
 - Gestionar los fondos del tesoro
@@ -186,7 +186,11 @@ stateDiagram-v2
     Discusión --> Votación: Inicio de votación
     Votación --> Rechazada: No alcanza quórum/umbral
     Votación --> Aprobada: Supera quórum/umbral
-    Aprobada --> Ejecución: Multisig ejecuta
+    Aprobada --> Consejo: Evaluación por Consejo
+    Consejo --> Automatizada: Proceso automático
+    Consejo --> Manual: Acción no automatizada
+    Automatizada --> Ejecución: Smart contracts
+    Manual --> Ejecución: Multisig ejecuta
     Ejecución --> [*]
     Rechazada --> [*]
 ```
@@ -233,11 +237,34 @@ EthEcuador DAO implementa un sistema de delegación de votos que permite a los m
 
 ### 5.2 Gestión del Tesoro
 
-#### 5.2.1 Billetera Multi-firma
+#### 5.2.1 Consejo de Gobernanza
 
-La gestión del tesoro se realizará mediante la billetera multi-firma controlada por los miembros más activos del proyecto. **Estos miembros fueron seleccionados a través de una convocatoria abierta realizada en el canal de Telegram del equipo núcleo, donde se evaluó su participación consistente y aportaciones significativas al proyecto.** La configuración requerirá la aprobación de un subconjunto de firmantes (ej. 4 de 7) para ejecutar transacciones.
+EthEcuador DAO contará con un Consejo de Gobernanza formado por miembros activos de la comunidad, responsables de ejecutar cualquier acción que no esté automatizada y que haya sido aprobada mediante el proceso formal de propuestas y votaciones. 
 
-#### 5.2.2 Flujo de Financiamiento
+```mermaid
+flowchart TD
+    A[Propuesta Aprobada] --> B[Consejo de Gobernanza]
+    B --> C{¿Acción Automatizada?}
+    C -->|Sí| D[Ejecución por Smart Contract]
+    C -->|No| E[Ejecución por Consejo]
+    E --> F[Billetera Multi-firma]
+    F --> G[Implementación]
+```
+
+Este consejo será responsable de:
+- Interpretar y ejecutar fielmente las decisiones comunitarias
+- Coordinar acciones técnicas y administrativas
+- Supervisar la implementación de proyectos
+- Mantener la comunicación transparente sobre las acciones ejecutadas
+- Representar a la DAO en relaciones externas
+
+Los miembros del consejo serán elegidos por votación comunitaria, con renovación periódica para mantener la descentralización efectiva.
+
+#### 5.2.2 Billetera Multi-firma
+
+La gestión del tesoro se realizará mediante la billetera multi-firma controlada por los miembros del Consejo de Gobernanza. **Estos miembros fueron seleccionados a través de una convocatoria abierta realizada en el canal de Telegram del equipo núcleo, donde se evaluó su participación consistente y aportaciones significativas al proyecto.** La configuración requerirá la aprobación de un subconjunto de firmantes (ej. 4 de 7) para ejecutar transacciones.
+
+#### 5.2.3 Flujo de Financiamiento
 
 1. **Recepción de Fondos**:
    - Donaciones directas

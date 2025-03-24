@@ -79,9 +79,9 @@ The system will consist of the following interconnected smart contracts:
    - Payment distribution to executors
    - Automatic 10% contribution to treasury
 
-### 3.4 Multi-signature Wallet
+### 3.4 Governance Council and Multi-signature Wallet
 
-Treasury management and DAO administration will be carried out through a multi-signature wallet on Arbitrum, controlled by the most active members of the project. **The call for participation in this active DAO team, who will be the signatories of the multisig wallet, was conducted through the Telegram channel of the core team.** This wallet will have the ability to:
+Treasury management and DAO administration will be carried out through a Governance Council that will use a multi-signature wallet on Arbitrum to execute approved decisions. **The call for participation in this administrative council, whose members will be the signatories of the multisig wallet, was conducted through the Telegram channel of the core team.** This council and its associated wallet will have the ability to:
 
 - Execute decisions approved by voting
 - Manage treasury funds
@@ -188,7 +188,11 @@ stateDiagram-v2
     Discussion --> Voting: Start of voting
     Voting --> Rejected: Doesn't reach quorum/threshold
     Voting --> Approved: Exceeds quorum/threshold
-    Approved --> Execution: Multisig executes
+    Approved --> Council: Evaluation by Council
+    Council --> Automated: Automatic process
+    Council --> Manual: Non-automated action
+    Automated --> Execution: Smart contracts
+    Manual --> Execution: Multisig executes
     Execution --> [*]
     Rejected --> [*]
 ```
@@ -235,11 +239,34 @@ EthEcuador DAO implements a vote delegation system that allows members to transf
 
 ### 5.2 Treasury Management
 
-#### 5.2.1 Multi-signature Wallet
+#### 5.2.1 Governance Council
 
-Treasury management will be carried out through the multi-signature wallet controlled by the most active members of the project. **These members were selected through an open call made on the Telegram channel of the core team, where their consistent participation and significant contributions to the project were evaluated.** The configuration will require the approval of a subset of signatories (e.g., 4 of 7) to execute transactions.
+EthEcuador DAO will have a Governance Council formed by active community members, responsible for executing any non-automated action that has been approved through the formal proposal and voting process.
 
-#### 5.2.2 Funding Flow
+```mermaid
+flowchart TD
+    A[Approved Proposal] --> B[Governance Council]
+    B --> C{Automated Action?}
+    C -->|Yes| D[Execution by Smart Contract]
+    C -->|No| E[Execution by Council]
+    E --> F[Multi-signature Wallet]
+    F --> G[Implementation]
+```
+
+This council will be responsible for:
+- Faithfully interpreting and executing community decisions
+- Coordinating technical and administrative actions
+- Supervising project implementation
+- Maintaining transparent communication about executed actions
+- Representing the DAO in external relations
+
+Council members will be elected by community vote, with periodic renewal to maintain effective decentralization.
+
+#### 5.2.2 Multi-signature Wallet
+
+Treasury management will be carried out through the multi-signature wallet controlled by the Governance Council members. **These members were selected through an open call made on the Telegram channel of the core team, where their consistent participation and significant contributions to the project were evaluated.** The configuration will require the approval of a subset of signatories (e.g., 4 of 7) to execute transactions.
+
+#### 5.2.3 Funding Flow
 
 1. **Funds Reception**:
    - Direct donations
