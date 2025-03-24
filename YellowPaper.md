@@ -118,16 +118,18 @@ pie
    - Destinado a financiar proyectos comunitarios y operaciones
 
 2. **Equipo Núcleo**: 1,000 LATA (10%)
-   - 17 miembros activos × 58.82 LATA cada uno (redondeado)
+   - 17 miembros activos × 58.82 LATAs cada uno (redondeado)
    - Incluye fundadores y contribuyentes principales
 
 3. **Comunidad Telegram**: 1,000 LATA (10%)
-   - 128 miembros × 7.81 LATA cada uno (redondeado)
+   - 128 miembros × 1 LATA cada uno 
    - Distribución por miembro activo mediante proceso de verificación
+   - El resto de tokens quedan para posibles futuros miembros de la comunidad telegram
 
 4. **Donadores**: 1,000 LATA (10%)
    - Reservado para recompensar donaciones económicas iniciales
-   - Tasa de distribución: 10 LATA por 1 USD donado
+   - Tasa de distribución: 1 LATA por 100 USD donado
+   - La distribución de los tokens de governanza es simbólica para los donadores, ya que incentivamos meritocracia por sobre lo económico.
 
 5. **Bóveda de Meritocracia**: 2,000 LATA (20%)
    - Reservado para recompensar contribuciones meritorias
