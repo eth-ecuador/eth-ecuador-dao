@@ -22,7 +22,7 @@ La arquitectura de EthEcuador DAO se basa en los siguientes principios:
 
 ### 3.1 Red de Despliegue
 
-La infraestructura de la DAO se implementará en **Arbitrum**, una solución Layer 2 para Ethereum, seleccionada por sus ventajas:
+La infraestructura de la DAO se ha implementado en **Arbitrum**, una solución Layer 2 para Ethereum, seleccionada por sus ventajas:
 
 - Bajos costos de transacción en comparación con Ethereum mainnet
 - Alta seguridad heredada de Ethereum
@@ -32,7 +32,7 @@ La infraestructura de la DAO se implementará en **Arbitrum**, una solución Lay
 
 ### 3.2 Plataforma de Gestión
 
-La DAO utilizará **Aragon** como plataforma principal para su creación y administración, aprovechando sus características:
+La DAO utiliza **Aragon** como plataforma principal para su creación y administración, aprovechando sus características:
 
 - Interfaz intuitiva para creación y gestión de DAOs
 - Módulos preconfigurados para votación, finanzas y membresías
@@ -44,7 +44,7 @@ La DAO utilizará **Aragon** como plataforma principal para su creación y admin
 
 #### 3.3.1 Contratos Inteligentes
 
-El sistema constará de los siguientes contratos inteligentes interconectados:
+El sistema consta de los siguientes contratos inteligentes interconectados:
 
 ```mermaid
 flowchart TB
@@ -79,7 +79,7 @@ flowchart TB
 
 ### 3.4 Consejo de Gobernanza y Billetera Multi-firma
 
-La gestión del tesoro y la administración de la DAO se realizará mediante un Consejo de Gobernanza que utilizará una billetera multi-firma en Arbitrum para ejecutar las decisiones aprobadas. **La convocatoria para formar parte de este consejo administrativo, cuyos miembros serán los firmantes de la billetera multifirma, fue realizada a través del canal de Telegram del equipo núcleo.** Este consejo y su billetera asociada tendrán la capacidad de:
+La gestión del tesoro y la administración de la DAO se realiza mediante un Consejo de Gobernanza que utiliza una billetera multi-firma en Arbitrum para ejecutar las decisiones aprobadas. El Consejo de Gobernanza fue formado a través de una convocatoria abierta realizada en el canal de Telegram del equipo núcleo, y está compuesto por siete miembros: Alex, Nico, Chris, Marcos, Nathalia, Paul y David. Este consejo y su billetera asociada tienen la capacidad de:
 
 - Ejecutar decisiones aprobadas mediante votación
 - Gestionar los fondos del tesoro
@@ -101,7 +101,7 @@ La gestión del tesoro y la administración de la DAO se realizará mediante un 
 
 #### 4.1.2 Distribución Inicial
 
-El suministro inicial de 10,000 LATA se distribuirá de la siguiente manera:
+El suministro inicial de 10,000 LATA se distribuye de la siguiente manera:
 
 ```mermaid
 pie
@@ -129,7 +129,7 @@ pie
 4. **Donadores**: 1,000 LATA (10%)
    - Reservado para recompensar donaciones económicas iniciales
    - Tasa de distribución: 1 LATA por 100 USD donado
-   - La distribución de los tokens de governanza es simbólica para los donadores, ya que incentivamos meritocracia por sobre lo económico.
+   - La distribución de los tokens de governanza es simbólica para los donadores, ya que se incentiva meritocracia por sobre lo económico
 
 5. **Bóveda de Meritocracia**: 2,000 LATA (20%)
    - Reservado para recompensar contribuciones meritorias
@@ -137,11 +137,11 @@ pie
 
 #### 4.1.3 Distribución expandida (post-lanzamiento)
 
-Para acomodar la distribución a la comunidad de X (756 seguidores), se contemplará una emisión adicional controlada:
+Para acomodar la distribución a la comunidad de X (756 seguidores), se contempla una emisión adicional controlada:
 
-- Establecer un programa de airdrop verificado
-- Requerir interacción con la DAO para reclamar tokens
-- Limitar a 1 LATA por seguidor verificado
+- Programa de airdrop verificado
+- Requisito de interacción con la DAO para reclamar tokens
+- Límite de 1 LATA por seguidor verificado
 
 #### 4.1.4 Generación Continua
 
@@ -153,7 +153,7 @@ graph LR
     C -->|10% de ingresos| E[Tesoro DAO]
 ```
 
-La emisión de tokens post-lanzamiento se producirá mediante:
+La emisión de tokens post-lanzamiento se produce mediante:
 
 1. **Recompensas por Contribuciones Meritocráticas**:
    - Organización de eventos: 100 LATA por evento pequeño (escalable según impacto)
@@ -241,7 +241,7 @@ EthEcuador DAO implementa un sistema de delegación de votos que permite a los m
 
 #### 5.2.1 Consejo de Gobernanza
 
-EthEcuador DAO contará con un Consejo de Gobernanza formado por miembros activos de la comunidad, responsables de ejecutar cualquier acción que no esté automatizada y que haya sido aprobada mediante el proceso formal de propuestas y votaciones. 
+EthEcuador DAO cuenta con un Consejo de Gobernanza formado por miembros activos de la comunidad, responsables de ejecutar cualquier acción que no esté automatizada y que haya sido aprobada mediante el proceso formal de propuestas y votaciones. 
 
 ```mermaid
 flowchart TD
@@ -253,18 +253,18 @@ flowchart TD
     F --> G[Implementación]
 ```
 
-Este consejo será responsable de:
+Este consejo es responsable de:
 - Interpretar y ejecutar fielmente las decisiones comunitarias
 - Coordinar acciones técnicas y administrativas
 - Supervisar la implementación de proyectos
 - Mantener la comunicación transparente sobre las acciones ejecutadas
 - Representar a la DAO en relaciones externas
 
-Los miembros del consejo serán elegidos por votación comunitaria, con renovación periódica para mantener la descentralización efectiva.
+Los miembros del consejo fueron elegidos tras una convocatoria abierta en el canal de Telegram del equipo núcleo, donde se evaluó su participación consistente y aportaciones significativas al proyecto.
 
 #### 5.2.2 Billetera Multi-firma
 
-La gestión del tesoro se realizará mediante la billetera multi-firma controlada por los miembros del Consejo de Gobernanza. **Estos miembros fueron seleccionados a través de una convocatoria abierta realizada en el canal de Telegram del equipo núcleo, donde se evaluó su participación consistente y aportaciones significativas al proyecto.** La configuración requerirá la aprobación de un subconjunto de firmantes (ej. 4 de 7) para ejecutar transacciones.
+La gestión del tesoro se realiza mediante la billetera multi-firma controlada por los siete miembros del Consejo de Gobernanza (Alex, Nico, Chris, Marcos, Nathalia, Paul y David). La configuración requiere la aprobación de un subconjunto de firmantes para ejecutar transacciones.
 
 #### 5.2.3 Flujo de Financiamiento
 
@@ -300,13 +300,13 @@ graph TB
 
 #### 5.3.2 Meritocracia
 
-La asignación de proyectos priorizará a miembros con historial comprobado de:
+La asignación de proyectos prioriza a miembros con historial comprobado de:
 
 - Participación activa en la comunidad
 - Ejecución exitosa de proyectos anteriores
 - Contribuciones significativas al ecosistema
 
-Las recompensas por contribuciones meritocráticas serán significativamente mayores que las otorgadas por donaciones económicas, incentivando la participación activa sobre las contribuciones pasivas.
+Las recompensas por contribuciones meritocráticas son significativamente mayores que las otorgadas por donaciones económicas, incentivando la participación activa sobre las contribuciones pasivas.
 
 ## 6. Implementación Técnica
 
@@ -420,130 +420,35 @@ contract ProjectFunding is Ownable {
 }
 ```
 
-### 6.2 Distribución Inicial con Aragon
+### 6.2 Estado Actual de Implementación
 
-La implementación técnica con Aragon en Arbitrum seguirá estos pasos:
+La DAO ha sido creada y está activa en Arbitrum utilizando la plataforma Aragon. El token LATA ha sido desplegado y la billetera multi-firma del Consejo de Gobernanza está operativa. Las etapas de implementación incluyen:
 
-1. **Creación de la DAO**:
-   - Desplegar la DAO a través de la interfaz de Aragon en Arbitrum
-   - Configurar parámetros de votación (umbral, duración, quórum)
-   - Establecer la billetera multi-firma como controlador
+1. **Creación de la DAO**: Completada con éxito por el Consejo de Gobernanza.
 
-2. **Configuración del Token**:
-   - Desplegar el token LATA con suministro inicial de 10,000
-   - Integrar con el módulo de token de Aragon
-   - Configurar permisos de minado controlados por la DAO
+2. **Configuración del Token**: El token LATA ha sido desplegado con un suministro inicial de 10,000 tokens.
 
-3. **Distribución Inicial**:
-   - Asignar 5,000 LATA (50%) al tesoro de la DAO
-   - Distribuir 58.82 LATA a cada uno de los 17 miembros del equipo núcleo
-   - Reservar 1,000 LATA para la comunidad de Telegram (7.81 por miembro)
-   - Reservar 1,000 LATA para recompensar donaciones
-   - Reservar 2,000 LATA en la bóveda de meritocracia
+3. **Distribución Inicial**: En proceso, siguiendo el modelo establecido:
+   - 5,000 LATA (50%) asignados al tesoro de la DAO
+   - 1,000 LATA (10%) para el equipo núcleo
+   - 1,000 LATA (10%) para la comunidad de Telegram
+   - 1,000 LATA (10%) para donadores
+   - 2,000 LATA (20%) en la bóveda de meritocracia
 
-4. **Automatización de Recompensas**:
-   - Implementar contratos para recompensas por donaciones
-   - Configurar sistema de distribución para la comunidad de Telegram
-   - Establecer mecanismos de distribución de la bóveda de meritocracia
+4. **Próximos pasos**:
+   - Activación completa de los mecanismos de gobernanza
+   - Procesamiento de las primeras propuestas formales
+   - Habilitación de los sistemas de recompensas por donaciones y meritocracia
+   - Implementación del sistema para integrar a la comunidad de X
 
-### 6.3 Hoja de Ruta de Implementación
-
-```mermaid
-gantt
-    title Implementación de EthEcuador DAO
-    dateFormat  YYYY-MM-DD
-    section Fase 1: Preparación
-    Configuración y parámetros en Aragon    :2023-01-01, 14d
-    Desarrollo y auditoría de contratos     :2023-01-01, 14d
-    Creación de documentación               :2023-01-08, 7d
-    section Fase 2: Despliegue
-    Desplegar DAO en Arbitrum               :2023-01-15, 7d
-    Configurar billetera multi-firma        :2023-01-22, 7d
-    Implementar token LATA                  :2023-01-22, 7d
-    section Fase 3: Distribución
-    Distribuir tokens al equipo núcleo      :2023-01-29, 7d
-    Proceso de verificación Telegram        :2023-01-29, 14d
-    Iniciar distribución comunitaria        :2023-02-05, 7d
-    section Fase 4: Lanzamiento
-    Activar mecanismos de gobernanza        :2023-02-12, 7d
-    Procesar primeras propuestas            :2023-02-19, 7d
-    Habilitar sistemas de recompensas       :2023-02-19, 7d
-    section Fase 5: Expansión
-    Integrar comunidad de X                 :2023-03-01, 90d
-    Desarrollar herramientas adicionales    :2023-03-01, 90d
-    Establecer programas de meritocracia    :2023-03-01, 90d
-```
-
-1. **Fase 1: Preparación (Semanas 1-2)**
-   - Finalizar la configuración y parámetros en Aragon
-   - Desarrollar y auditar contratos inteligentes
-   - Crear documentación técnica y guías de usuario
-
-2. **Fase 2: Despliegue (Semanas 3-4)**
-   - Desplegar DAO en Arbitrum mediante Aragon
-   - Configurar billetera multi-firma con miembros activos
-   - Implementar token LATA y mecanismos de distribución
-
-3. **Fase 3: Distribución Inicial (Semanas 5-6)**
-   - Distribuir tokens al equipo núcleo
-   - Establecer proceso de verificación para miembros de Telegram
-   - Iniciar proceso de distribución comunitaria
-
-4. **Fase 4: Lanzamiento (Semanas 7-8)**
-   - Activar mecanismos de gobernanza
-   - Procesar primeras propuestas
-   - Habilitar sistemas de recompensas por donaciones y meritocracia
-
-5. **Fase 5: Expansión (Meses 3-6)**
-   - Implementar sistema para integrar a la comunidad de X
-   - Desarrollar herramientas adicionales según necesidades comunitarias
-   - Establecer programas formales de meritocracia y contribución
-
-## 7. Expansión a Comunidades Sociales
-
-### 7.1 Integración de la Comunidad de X
-
-Para integrar a los 756 seguidores de X, se implementará una estrategia escalonada:
-
-1. **Proceso de Verificación**:
-   - Confirmar que los seguidores son genuinos y activos
-   - Establecer criterios de elegibilidad (antigüedad, interacción, etc.)
-
-2. **Distribución Controlada**:
-   - Implementar un sistema de reclamación verificado
-   - Limite inicial de 1 LATA por seguidor verificado
-
-3. **Incentivos de Participación**:
-   - Recompensas adicionales por completar tareas de onboarding
-   - Mecanismos para aumentar la participación post-distribución
-
-Esta integración se realizará de manera que no diluya excesivamente el poder de voto de los contribuyentes más activos, manteniendo el equilibrio entre inclusión y reconocimiento meritocrático.
-
-## 8. Visión a Futuro
-
-### 8.1 Evolución de la DAO
-
-La estructura de EthEcuador DAO está diseñada para evolucionar con el tiempo mediante:
-
-1. **Mejoras Propuestas por la Comunidad**: Cambios en parámetros y procesos
-2. **Integración de Nuevas Tecnologías**: Adopción de avances en el ecosistema DAO
-3. **Expansión del Ecosistema**: Creación de sub-DAOs para iniciativas específicas
-
-### 8.2 Objetivos a Largo Plazo
-
-1. **Educación Web3**: Formar una nueva generación de desarrolladores y usuarios
-2. **Impacto Social**: Implementar soluciones blockchain para desafíos locales
-3. **Relevancia Regional**: Posicionar a Ecuador como referente en innovación blockchain
-4. **Sostenibilidad Económica**: Generar oportunidades y recursos para la comunidad
-
-## 9. Conclusión
+## 7. Conclusión
 
 EthEcuador DAO representa un modelo innovador de organización comunitaria basada en tecnología blockchain, diseñada para fomentar la participación, reconocer contribuciones y gestionar recursos de manera transparente y descentralizada. A través de su sistema de gobernanza tokenizado y mecanismos de financiamiento automatizados, la DAO establece las bases para el crecimiento sostenible del ecosistema web3 en Ecuador.
 
 La implementación en Arbitrum utilizando Aragon, con el token LATA como mecanismo de gobernanza, proporciona una base técnica sólida con costos operativos minimizados. El modelo de distribución equilibrado entre el tesoro, el equipo núcleo, la comunidad existente y los mecanismos de recompensa establece incentivos alineados para el crecimiento sostenible.
 
-Este Yellow Paper establece los parámetros técnicos, económicos y de gobernanza que guiarán el desarrollo e implementación de EthEcuador DAO, sujetos a refinamiento mediante los propios mecanismos de gobernanza comunitaria aquí descritos.
+Este Yellow Paper establece los parámetros técnicos, económicos y de gobernanza que guían el desarrollo e implementación de EthEcuador DAO, sujetos a refinamiento mediante los propios mecanismos de gobernanza comunitaria aquí descritos.
 
 ---
 
-*Este documento representa la visión técnica de EthEcuador DAO y está sujeto a modificaciones a través de los procesos de gobernanza comunitaria.*
+*Este documento representa la especificación técnica de EthEcuador DAO y está sujeto a modificaciones a través de los procesos de gobernanza comunitaria.*
