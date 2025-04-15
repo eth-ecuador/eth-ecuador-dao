@@ -1,316 +1,342 @@
-# EthEcuador DAO: Yellow Paper
+# EnceboDAO: Yellow Paper
 
-## Resumen
+**Take your EnceboDAO to $LATA mi ñaño**
 
-Este documento detalla la arquitectura técnica, económica y de gobernanza de EthEcuador DAO, una organización autónoma descentralizada diseñada para fomentar el crecimiento del ecosistema web3 en Ecuador. A través de mecanismos de incentivos tokenizados, sistemas de votación descentralizados y gestión transparente del tesoro, EthEcuador DAO establece un marco para la participación comunitaria, la toma de decisiones colectivas y el desarrollo de proyectos con impacto local.
+## Abstract
 
-## 1. Introducción
+What's up! This document details the technical, economic, and governance architecture of EnceboDAO, a flavorful decentralized autonomous organization designed to foster the growth of the web3 ecosystem in Ecuador. Through tokenized incentive mechanisms, decentralized voting systems, and transparent treasury management, EnceboDAO establishes a framework for community participation, collective decision-making, and the development of projects with local impact that, like a good encebollado, nourish the soul.
 
-EthEcuador DAO es una organización representada por reglas codificadas en contratos inteligentes, caracterizada por su transparencia, resistencia a la censura y gobernanza descentralizada. La DAO busca aumentar el compromiso y sentido de pertenencia de los miembros de la comunidad mediante el uso de plataformas web3, promoviendo la transparencia, descentralización e inclusión en todos sus procesos.
+## 1. Introduction
 
-## 2. Principios Fundamentales
+EnceboDAO (derived from "Encebollado," the famous Ecuadorian soup) is an organization represented by rules encoded in smart contracts, characterized by its transparency, censorship resistance, and decentralized governance. Just as encebollado is a dish that unites Ecuadorians, our DAO seeks to increase community members' engagement and sense of belonging through the use of web3 platforms, promoting transparency, decentralization, and inclusion in all its processes.
 
-La arquitectura de EthEcuador DAO se basa en los siguientes principios:
+Our motto: **"Take your EnceboDAO to $LATA mi ñaño"** represents the invitation to all Ecuadorians to participate in this community project, where everyone can contribute with their ingredients (skills) to make the best encebollado (ecosystem) possible.
 
-1. **Descentralización**: La toma de decisiones debe distribuirse entre los miembros de la comunidad.
-2. **Transparencia**: Todas las operaciones, transacciones y decisiones deben ser verificables en la blockchain.
-3. **Meritocracia**: Las contribuciones a la comunidad son reconocidas y recompensadas proporcionalmente.
-4. **Sostenibilidad**: La estructura económica debe garantizar la viabilidad a largo plazo de la organización.
-5. **Inclusividad**: Barreras mínimas de entrada para nuevos miembros de la comunidad.
+## 2. Fundamental Principles
 
-## 3. Arquitectura Técnica
+EnceboDAO's architecture is based on the following principles:
 
-### 3.1 Red de Despliegue
+1. **Decentralization**: Decision-making must be distributed among community members, like the ingredients in a good encebollado.
+2. **Transparency**: All operations, transactions, and decisions must be verifiable on the blockchain, clear as the broth of a well-made encebollado.
+3. **Meritocracy**: Contributions to the community are recognized and rewarded proportionally, just as we appreciate the one who cooks the best encebollado.
+4. **Sustainability**: The economic structure must guarantee the long-term viability of the organization, so that the pot never empties.
+5. **Inclusivity**: Minimal entry barriers for new community members, because encebollado is for everyone.
 
-La infraestructura de la DAO se ha implementado en **Arbitrum**, una solución Layer 2 para Ethereum, seleccionada por sus ventajas:
+## 3. Technical Architecture
 
-- Bajos costos de transacción en comparación con Ethereum mainnet
-- Alta seguridad heredada de Ethereum
-- Ecosistema establecido de herramientas para DAOs
-- Compatibilidad completa con estándares ERC-20 y ERC-721
-- Tiempos de confirmación rápidos
+### 3.1 Deployment Network
 
-### 3.2 Plataforma de Gestión
+The DAO infrastructure has been implemented on **Arbitrum**, a Layer 2 solution for Ethereum, selected for its advantages:
 
-La DAO utiliza **Aragon** como plataforma principal para su creación y administración, aprovechando sus características:
+- Low transaction costs compared to Ethereum mainnet (so it doesn't leave your pockets empty!)
+- High security inherited from Ethereum
+- Established ecosystem of tools for DAOs
+- Full compatibility with ERC-20 and ERC-721 standards
+- Fast confirmation times (faster than serving a hot encebollado!)
 
-- Interfaz intuitiva para creación y gestión de DAOs
-- Módulos preconfigurados para votación, finanzas y membresías
-- Amplia compatibilidad con Arbitrum
-- Herramientas de gestión de tesoro integradas
-- Capacidad de extensión mediante plugins personalizados
+### 3.2 Management Platform
 
-### 3.3 Componentes del Sistema
+The DAO uses **Aragon** as the main platform for its creation and administration, leveraging its features:
 
-#### 3.3.1 Contratos Inteligentes
+- Intuitive interface for DAO creation and management
+- Preconfigured modules for voting, finances, and memberships
+- Wide compatibility with Arbitrum
+- Integrated treasury management tools
+- Extensibility through custom plugins
 
-El sistema consta de los siguientes contratos inteligentes interconectados:
+### 3.3 System Components
+
+#### 3.3.1 Smart Contracts
 
 ```mermaid
 flowchart TB
-    A[TokenContract] -->|Gestiona| B[Tokens LATA]
-    C[GovernanceContract] -->|Utiliza| A
-    D[TreasuryContract] -->|Administra| E[Tesoro de la DAO]
-    F[ProjectFundingContract] -->|Financia| G[Proyectos]
-    F -->|Contribuye 10%| D
-    C -->|Propuestas aprobadas| D
-    D -->|Ejecuta| F
+    A[TokenContract] -->|Manages| B[LATA Tokens]
+    A -->|Enables| H[Vote Delegation]
+    C[GovernanceContract] -->|Uses| A
+    D[TreasuryContract] -->|Administers| E[DAO Treasury]
+    F[ProjectFundingContract] -->|Finances| G[Projects]
+    F -->|Contributes 10%| D
+    C -->|Approved proposals| D
+    D -->|Executes| F
+    H -->|Strengthens| C
 ```
 
-1. **TokenContract**: Implementación ERC-20 del token de gobernanza LATA.
-   - Funciones de emisión controlada
-   - Mecanismos de distribución automatizada
-   - Interfaz para consulta de balances y derechos de voto
+The system consists of the following interconnected smart contracts:
 
-2. **GovernanceContract**: Sistema de propuestas y votación.
-   - Presentación y gestión de propuestas
-   - Votación ponderada por tokens
-   - Ejecución automática de propuestas aprobadas
+1. **TokenContract**: ERC-20 implementation of the LATA governance token.
+   - Controlled emission functions
+   - Automated distribution mechanisms
+   - Interface for balance queries and voting rights
 
-3. **TreasuryContract**: Gestión de fondos comunitarios.
-   - Interfaz para multisig de firmantes autorizados
-   - Registro transparente de ingresos y gastos
-   - Automatización de distribuciones y contribuciones
+2. **GovernanceContract**: Proposal and voting system.
+   - Submission and management of proposals
+   - Token-weighted voting
+   - Automatic execution of approved proposals
 
-4. **ProjectFundingContract**: Financiamiento y gestión de proyectos.
-   - Solicitud de fondos para proyectos
-   - Distribución de pagos a ejecutores
-   - Contribución automática del 10% al tesoro
+3. **TreasuryContract**: Community fund management.
+   - Interface for multisig of authorized signers
+   - Transparent record of income and expenses
+   - Automation of distributions and contributions
 
-### 3.4 Consejo de Gobernanza y Billetera Multi-firma
+4. **ProjectFundingContract**: Project funding and management.
+   - Request for project funds
+   - Payment distribution to executors
+   - Automatic 10% contribution to treasury
 
-La gestión del tesoro y la administración de la DAO se realiza mediante un Consejo de Gobernanza que utiliza una billetera multi-firma en Arbitrum para ejecutar las decisiones aprobadas. El Consejo de Gobernanza fue formado a través de una convocatoria abierta realizada en el canal de Telegram del equipo núcleo, y está compuesto por siete miembros: Alex, Nico, Chris, Marcos, Nathalia, Paul y David. Este consejo y su billetera asociada tienen la capacidad de:
+### 3.4 Governance Council and Multi-signature Wallet
 
-- Ejecutar decisiones aprobadas mediante votación
-- Gestionar los fondos del tesoro
-- Realizar actualizaciones técnicas cuando sea necesario
-- Responder a situaciones de emergencia
+Treasury management and DAO administration is carried out through a Governance Council that uses a multi-signature wallet on Arbitrum to execute approved decisions. The Governance Council was formed through an open call made on the Telegram channel of the core team, and is composed of seven members: Alex, Nico, Chris, Marcos, Nathalia, Paul, and David. This council and its associated wallet have the ability to:
 
-## 4. Modelo Económico
+- Execute decisions approved by voting (the voice of the people is the voice of God, my friend!)
+- Manage treasury funds
+- Perform technical updates when necessary
+- Respond to emergency situations (like when we run out of hot sauce for the encebollado!)
+
+## 4. Economic Model
 
 ### 4.1 Tokenomics
 
-#### 4.1.1 Token de Gobernanza
+#### 4.1.1 Governance Token
 
-- **Nombre y Símbolo**: LATA
-- **Descripción**: Inspirado en la expresión coloquial ecuatoriana para referirse a la moneda "Sucre"
-- **Estándar**: ERC-20 con extensión ERC-20Votes en Arbitrum
-- **Divisibilidad**: 18 decimales
-- **Suministro Total Inicial**: 10,000 LATA
-- **Características Especiales**: Sistema de delegación de votos integrado
+- **Name and Symbol**: LATA
+- **Description**: Inspired by the Ecuadorian colloquial expression for the "Sucre" currency
+- **Standard**: ERC-20 with ERC-20Votes extension on Arbitrum
+- **Divisibility**: 18 decimals
+- **Initial Total Supply**: 10,000 LATA
+- **Special Features**: Integrated vote delegation system (for when you're too busy eating encebollado!)
 
-#### 4.1.2 Distribución Inicial
+#### 4.1.2 Initial Distribution
 
-El suministro inicial de 10,000 LATA se distribuye de la siguiente manera:
+The initial supply of 10,000 LATA is distributed as follows:
 
 ```mermaid
 pie
-    title "Distribución Inicial de Tokens LATA"
-    "Tesoro de la DAO" : 5000
-    "Equipo Núcleo" : 1000
-    "Comunidad Telegram" : 1000
-    "Donadores" : 1000
-    "Bóveda de Meritocracia" : 2000
+    title "Initial Distribution of LATA Tokens"
+    "DAO Treasury" : 7000
+    "Core Team" : 17
+    "Community Airdrop" : 1000
+    "Donors" : 1000
+    "Meritocracy Vault" : 983
 ```
 
-1. **Tesoro de la DAO**: 5,000 LATA (50%)
-   - Gestionado mediante la billetera multi-firma
-   - Destinado a financiar proyectos comunitarios y operaciones
+1. **DAO Treasury**: 7,000 LATA (70%)
+   - Managed through the multi-signature wallet
+   - Intended to fund community projects and operations
+   - Further distribution through proposals approved by the governance system
 
-2. **Equipo Núcleo**: 1,000 LATA (10%)
-   - 17 miembros activos × 58.82 LATAs cada uno (redondeado)
-   - Incluye fundadores y contribuyentes principales
+2. **Core Team**: 17 LATA (0.17%)
+   - 1 LATA for each of the 17 active members of the core team
+   - Includes founders and main contributors
+   - Because in EnceboDAO we all start equal, like brothers!
 
-3. **Comunidad Telegram**: 1,000 LATA (10%)
-   - 128 miembros × 1 LATA cada uno 
-   - Distribución por miembro activo mediante proceso de verificación
-   - El resto de tokens quedan para posibles futuros miembros de la comunidad telegram
+3. **Community Airdrop**: 1,000 LATA (10%)
+   - Distribution through verified airdrop
+   - 1 LATA per participant who meets the conditions
+   - Managed through platforms like Galxe or Guild.xyz
 
-4. **Donadores**: 1,000 LATA (10%)
-   - Reservado para recompensar donaciones económicas iniciales
-   - Tasa de distribución: 1 LATA por 100 USD donado
-   - La distribución de los tokens de governanza es simbólica para los donadores, ya que se incentiva meritocracia por sobre lo económico
+4. **Donors**: 1,000 LATA (10%)
+   - Reserved to reward initial economic donations
+   - The distribution of governance tokens is symbolic for donors
+   - Meritocracy is incentivized over economic contributions (effort is worth more than money!)
 
-5. **Bóveda de Meritocracia**: 2,000 LATA (20%)
-   - Reservado para recompensar contribuciones meritorias
-   - Mayor tasa de recompensa que las donaciones económicas
+5. **Meritocracy Vault**: 983 LATA (9.83%)
+   - Reserved to reward future meritorious contributions
+   - Higher reward rate than economic donations
 
-#### 4.1.3 Distribución expandida (post-lanzamiento)
+#### 4.1.3 Community Airdrop
 
-Para acomodar la distribución a la comunidad de X (756 seguidores), se contempla una emisión adicional controlada:
+The community airdrop follows these conditions:
 
-- Programa de airdrop verificado
-- Requisito de interacción con la DAO para reclamar tokens
-- Límite de 1 LATA por seguidor verificado
+- **Participation requirements**:
+  - Follow ETHEcuador and Crypto Activos Podcast on X
+  - Repost the governance token airdrop publication
+  - Complete all required tasks on the airdrop platform
 
-#### 4.1.4 Generación Continua
+- **Management**:
+  - The airdrop will be managed through platforms like Galxe or Guild.xyz
+  - Automatic verification of requirements
+  - Distribution of 1 LATA to each verified participant
+
+- **Timeline**:
+  - Launch of call: May 1, 2025
+  - Socialization and registration period: 15 days
+  - Token distribution: within 7 days after closing
+
+#### 4.1.4 Expanded Distribution
 
 ```mermaid
 graph LR
-    A[Contribuciones Meritocráticas] -->|Alta recompensa| D[Emisión de LATA]
-    B[Donaciones al Tesoro] -->|10 LATA por USD| D
-    C[Proyectos Comunitarios] -->|20 LATA por USD generado| D
-    C -->|10% de ingresos| E[Tesoro DAO]
+    A[Governance System] -->|Approves proposals| B[Token distribution]
+    B -->|Rewards| C[Meritocratic Contributions]
+    B -->|Incentivizes| D[DAO Participation]
+    B -->|Funds| E[Community Projects]
 ```
 
-La emisión de tokens post-lanzamiento se produce mediante:
+The additional emission of tokens post-launch will occur through:
 
-1. **Recompensas por Contribuciones Meritocráticas**:
-   - Organización de eventos: 100 LATA por evento pequeño (escalable según impacto)
-   - Desarrollo técnico: LATA proporcionales al esfuerzo y valor generado
-   - Gestión comunitaria: LATA por tareas administrativas y de coordinación
-   - *Valoración superior a las recompensas por donaciones económicas*
+1. **Governance-Approved Proposals**:
+   - Members can propose the distribution of treasury tokens
+   - Each proposal must specify recipients, amounts, and justification
+   - The community votes to approve or reject the distribution
+   - Because the people rule, my friend!
 
-2. **Donaciones al Tesoro**:
-   - Tasa de conversión base: 10 LATA por cada 1 USD donado
-   - Mecanismo implementado mediante contrato inteligente
+2. **Rewards for Meritocratic Contributions**:
+   - Event organization: 100 LATA per small event (scalable according to impact)
+   - Technical development: LATA proportional to effort and value generated
+   - Community management: LATA for administrative and coordination tasks
+   - *Higher valuation than rewards for economic donations*
 
-3. **Contribuciones de Proyectos**:
-   - 20 LATA por cada 1 USD generado por proyectos comunitarios
-   - 10% de ingresos de proyectos destinado automáticamente al tesoro
+3. **Treasury Donations**:
+   - Base conversion rate: 10 LATA for each 1 USD donated
+   - Mechanism implemented through smart contract
 
-### 4.2 Modelo de Sostenibilidad
+4. **Project Contributions**:
+   - 20 LATA for each 1 USD generated by community projects
+   - 10% of project income automatically allocated to treasury
 
-La sostenibilidad financiera de la DAO se basa en:
+### 4.2 Sustainability Model
 
-1. **Donaciones Directas**: Contribuciones voluntarias al tesoro
-2. **Porcentaje de Proyectos**: 10% de los ingresos de proyectos comunitarios
-3. **Grants y Financiamiento Externo**: Subvenciones de fundaciones y ecosistemas blockchain
+The DAO's financial sustainability is based on:
 
-## 5. Sistema de Gobernanza
+1. **Direct Donations**: Voluntary contributions to the treasury
+2. **Project Percentage**: 10% of the income from community projects
+3. **Grants and External Funding**: Grants from foundations and blockchain ecosystems
 
-### 5.1 Estructura de Decisiones
+## 5. Governance System
+
+### 5.1 Decision Structure
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Creación: Propuesta creada
-    Creación --> Discusión: Período de debate
-    Discusión --> Votación: Inicio de votación
-    Votación --> Rechazada: No alcanza quórum/umbral
-    Votación --> Aprobada: Supera quórum/umbral
-    Aprobada --> Consejo: Evaluación por Consejo
-    Consejo --> Automatizada: Proceso automático
-    Consejo --> Manual: Acción no automatizada
-    Automatizada --> Ejecución: Smart contracts
-    Manual --> Ejecución: Multisig ejecuta
-    Ejecución --> [*]
-    Rechazada --> [*]
+    [*] --> Creation: Proposal created
+    Creation --> Discussion: Debate period
+    Discussion --> Voting: Start of voting
+    Voting --> Rejected: Doesn't reach quorum/threshold
+    Voting --> Approved: Exceeds quorum/threshold
+    Approved --> Council: Evaluation by Council
+    Council --> Automated: Automatic process
+    Council --> Manual: Non-automated action
+    Automated --> Execution: Smart contracts
+    Manual --> Execution: Multisig executes
+    Execution --> [*]
+    Rejected --> [*]
 ```
 
-#### 5.1.1 Tipos de Propuestas
+#### 5.1.1 Types of Proposals
 
-1. **Propuestas de Financiamiento**: Solicitud de fondos para proyectos o iniciativas
-2. **Propuestas de Cambio de Parámetros**: Modificaciones a la configuración de la DAO
-3. **Propuestas de Integración**: Incorporación de nuevas herramientas o protocolos
-4. **Propuestas de Mejora**: Cambios en los procesos o contratos inteligentes
+1. **Funding Proposals**: Request for funds for projects or initiatives (so the party never stops!)
+2. **Parameter Change Proposals**: Modifications to the DAO configuration
+3. **Integration Proposals**: Incorporation of new tools or protocols
+4. **Improvement Proposals**: Changes in processes or smart contracts
+5. **Distribution Proposals**: Allocation of LATA tokens to members or collaborators
 
-#### 5.1.2 Proceso de Votación
+#### 5.1.2 Voting Process
 
-1. **Creación de Propuesta**: Cualquier miembro con el mínimo requerido de tokens puede crear propuestas
-2. **Período de Discusión**: Tiempo asignado para debate comunitario
-3. **Votación Activa**: Los titulares de tokens emiten votos ponderados (1 token = 1 voto)
-4. **Ejecución**: Implementación por la multisig de propuestas aprobadas que superen el umbral de quórum
+1. **Proposal Creation**: Any member with the required minimum of tokens can create proposals
+2. **Discussion Period**: Time allocated for community debate (where everyone puts their spoon in!)
+3. **Active Voting**: Token holders cast weighted votes (1 token = 1 vote)
+4. **Execution**: Implementation by the multisig of approved proposals that exceed the quorum threshold
 
-#### 5.1.3 Parámetros de Gobernanza
+#### 5.1.3 Governance Parameters
 
-- **Umbral de Propuesta**: 10 LATA mínimos para presentar propuestas
-- **Duración de Votación**: 5 días para período de votación
-- **Quórum**: 10% de tokens participantes requeridos
-- **Umbral de Aprobación**: 51% de votos afirmativos necesarios
+- **Proposal Threshold**: 10 LATA minimum to submit proposals
+- **Voting Duration**: 5 days for voting period
+- **Quorum**: 10% of participating tokens required
+- **Approval Threshold**: 51% of affirmative votes needed
 
-#### 5.1.4 Delegación de Votos
+#### 5.1.4 Vote Delegation
 
 ```mermaid
 graph LR
-    A[Titular de LATA] -->|Delega poder de voto| B[Delegado]
-    B -->|Vota en nombre de| A
-    B -->|Mantiene sus propios votos| C[Votación]
-    A -->|Mantiene propiedad de tokens| D[Tokens LATA]
+    A[LATA Holder] -->|Delegates voting power| B[Delegate]
+    B -->|Votes on behalf of| A
+    B -->|Maintains own votes| C[Voting]
+    A -->|Maintains token ownership| D[LATA Tokens]
 ```
 
-EthEcuador DAO implementa un sistema de delegación de votos que permite a los miembros transferir su poder de voto a otros participantes sin ceder la propiedad de sus tokens. Características principales:
+EnceboDAO implements a vote delegation system that allows members to transfer their voting power to other participants without ceding ownership of their tokens. Main features:
 
-- **Delegación Flexible**: Cualquier titular de LATA puede delegar su poder de voto a otro miembro
-- **Revocación en Cualquier Momento**: La delegación puede ser revocada por el titular original cuando lo desee
-- **Delegación Parcial o Total**: Posibilidad de delegar solo una parte de los tokens
-- **Transparencia**: Todas las delegaciones quedan registradas en la blockchain y son públicamente verificables
-- **Sin Transferencia de Propiedad**: El delegante mantiene la propiedad completa de sus tokens
-- **Delegación Transitiva**: Un delegado puede a su vez delegar los votos recibidos (configurable según preferencia comunitaria)
+- **Flexible Delegation**: Any LATA holder can delegate their voting power to another member
+- **Revocation at Any Time**: Delegation can be revoked by the original holder whenever desired
+- **Partial or Total Delegation**: Possibility to delegate only a portion of tokens
+- **Transparency**: All delegations are recorded on the blockchain and are publicly verifiable
+- **No Transfer of Ownership**: The delegator maintains full ownership of their tokens
+- **Transitive Delegation**: A delegate can in turn delegate the received votes (configurable according to community preference)
 
-### 5.2 Gestión del Tesoro
+### 5.2 Treasury Management
 
-#### 5.2.1 Consejo de Gobernanza
+#### 5.2.1 Governance Council
 
-EthEcuador DAO cuenta con un Consejo de Gobernanza formado por miembros activos de la comunidad, responsables de ejecutar cualquier acción que no esté automatizada y que haya sido aprobada mediante el proceso formal de propuestas y votaciones. 
+EnceboDAO has a Governance Council formed by active community members, responsible for executing any non-automated action that has been approved through the formal proposal and voting process.
 
 ```mermaid
 flowchart TD
-    A[Propuesta Aprobada] --> B[Consejo de Gobernanza]
-    B --> C{¿Acción Automatizada?}
-    C -->|Sí| D[Ejecución por Smart Contract]
-    C -->|No| E[Ejecución por Consejo]
-    E --> F[Billetera Multi-firma]
-    F --> G[Implementación]
+    A[Approved Proposal] --> B[Governance Council]
+    B --> C{Automated Action?}
+    C -->|Yes| D[Execution by Smart Contract]
+    C -->|No| E[Execution by Council]
+    E --> F[Multi-signature Wallet]
+    F --> G[Implementation]
 ```
 
-Este consejo es responsable de:
-- Interpretar y ejecutar fielmente las decisiones comunitarias
-- Coordinar acciones técnicas y administrativas
-- Supervisar la implementación de proyectos
-- Mantener la comunicación transparente sobre las acciones ejecutadas
-- Representar a la DAO en relaciones externas
+This council is responsible for:
+- Faithfully interpreting and executing community decisions
+- Coordinating technical and administrative actions (like a good encebollado chef!)
+- Supervising project implementation
+- Maintaining transparent communication about executed actions
+- Representing the DAO in external relations
 
-Los miembros del consejo fueron elegidos tras una convocatoria abierta en el canal de Telegram del equipo núcleo, donde se evaluó su participación consistente y aportaciones significativas al proyecto.
+The council members were chosen after an open call on the Telegram channel of the core team, where their consistent participation and significant contributions to the project were evaluated.
 
-#### 5.2.2 Billetera Multi-firma
+#### 5.2.2 Multi-signature Wallet
 
-La gestión del tesoro se realiza mediante la billetera multi-firma controlada por los siete miembros del Consejo de Gobernanza (Alex, Nico, Chris, Marcos, Nathalia, Paul y David). La configuración requiere la aprobación de un subconjunto de firmantes para ejecutar transacciones.
+Treasury management is carried out through the multi-signature wallet controlled by the seven members of the Governance Council (Alex, Nico, Chris, Marcos, Nathalia, Paul, and David). The configuration requires the approval of a subset of signatories to execute transactions.
 
-#### 5.2.3 Flujo de Financiamiento
+#### 5.2.3 Funding Flow
 
-1. **Recepción de Fondos**:
-   - Donaciones directas
-   - Contribuciones de proyectos (10% automático)
-   - Subvenciones externas
+1. **Funds Reception**:
+   - Direct donations (the generosity of the community!)
+   - Project contributions (automatic 10%)
+   - External grants
 
-2. **Desembolso de Fondos**:
-   - Aprobación mediante votación
-   - Ejecución por firmantes de la multisig
-   - Registro transparente en la blockchain
+2. **Fund Disbursement**:
+   - Approval through voting
+   - Execution by multisig signers
+   - Transparent record on the blockchain
 
-### 5.3 Ejecución de Proyectos
+### 5.3 Project Execution
 
-#### 5.3.1 Ciclo de Vida del Proyecto
+#### 5.3.1 Project Lifecycle
 
 ```mermaid
 graph TB
-    A[Propuesta] -->|Votación| B[Aprobación]
-    B -->|Desembolso| C[Financiamiento]
-    C -->|Desarrollo| D[Ejecución]
-    D -->|10% de ingresos| E[Contribución al Tesoro]
-    D -->|Por valor generado| F[Recompensa en LATA]
+    A[Proposal] -->|Voting| B[Approval]
+    B -->|Disbursement| C[Funding]
+    C -->|Development| D[Execution]
+    D -->|10% of income| E[Treasury Contribution]
+    D -->|By value generated| F[LATA Reward]
 ```
 
-1. **Propuesta**: Presentación detallada con objetivos, presupuesto y entregables
-2. **Votación**: Aprobación por la comunidad mediante votación ponderada
-3. **Financiamiento**: Desembolso de fondos según hitos predefinidos
-4. **Ejecución**: Desarrollo del proyecto con actualizaciones periódicas
-5. **Contribución**: Devolución automática del 10% al tesoro
-6. **Recompensa**: Emisión de tokens proporcionales a la contribución
+1. **Proposal**: Detailed presentation with objectives, budget, and deliverables
+2. **Voting**: Approval by the community through weighted voting
+3. **Funding**: Fund disbursement according to predefined milestones
+4. **Execution**: Project development with periodic updates
+5. **Contribution**: Automatic 10% return to treasury
+6. **Reward**: Token issuance proportional to contribution
 
-#### 5.3.2 Meritocracia
+#### 5.3.2 Meritocracy
 
-La asignación de proyectos prioriza a miembros con historial comprobado de:
+Project allocation prioritizes members with a proven track record of:
 
-- Participación activa en la comunidad
-- Ejecución exitosa de proyectos anteriores
-- Contribuciones significativas al ecosistema
+- Active participation in the community (not just in words but in deeds!)
+- Successful execution of previous projects
+- Significant contributions to the ecosystem
 
-Las recompensas por contribuciones meritocráticas son significativamente mayores que las otorgadas por donaciones económicas, incentivando la participación activa sobre las contribuciones pasivas.
+Rewards for meritocratic contributions are significantly higher than those granted for economic donations, incentivizing active participation over passive contributions.
 
-## 6. Implementación Técnica
+## 6. Technical Implementation
 
-### 6.1 Contratos Inteligentes
+### 6.1 Smart Contracts
 
 #### 6.1.1 TokenContract
 
@@ -420,35 +446,47 @@ contract ProjectFunding is Ownable {
 }
 ```
 
-### 6.2 Estado Actual de Implementación
+### 6.2 Current Implementation Status
 
-La DAO ha sido creada y está activa en Arbitrum utilizando la plataforma Aragon. El token LATA ha sido desplegado y la billetera multi-firma del Consejo de Gobernanza está operativa. Las etapas de implementación incluyen:
+The DAO has been created and is active on Arbitrum using the Aragon platform. The LATA token has been deployed and the Governance Council's multi-signature wallet is operational. Implementation stages include:
 
-1. **Creación de la DAO**: Completada con éxito por el Consejo de Gobernanza.
+1. **DAO Creation**: Successfully completed by the Governance Council.
 
-2. **Configuración del Token**: El token LATA ha sido desplegado con un suministro inicial de 10,000 tokens.
+2. **Token Configuration**: The LATA token has been deployed with an initial supply of 10,000 tokens.
 
-3. **Distribución Inicial**: En proceso, siguiendo el modelo establecido:
-   - 5,000 LATA (50%) asignados al tesoro de la DAO
-   - 1,000 LATA (10%) para el equipo núcleo
-   - 1,000 LATA (10%) para la comunidad de Telegram
-   - 1,000 LATA (10%) para donadores
-   - 2,000 LATA (20%) en la bóveda de meritocracia
+3. **Initial Distribution**:
+   - 7,000 LATA (70%) allocated to the DAO treasury
+   - 17 LATA (0.17%) for the core team (1 LATA per member)
+   - 1,000 LATA (10%) for the community airdrop
+   - 1,000 LATA (10%) for donors
+   - 983 LATA (9.83%) in the meritocracy vault
 
-4. **Próximos pasos**:
-   - Activación completa de los mecanismos de gobernanza
-   - Procesamiento de las primeras propuestas formales
-   - Habilitación de los sistemas de recompensas por donaciones y meritocracia
-   - Implementación del sistema para integrar a la comunidad de X
+4. **Launch of Call and Socialization**:
+   - Official publication on ETHEcuador social networks
+   - Outreach campaign on Telegram and Discord channels
+   - Explanatory webinars about the DAO and how to participate
+   - Tutorials for wallet setup and airdrop participation
 
-## 7. Conclusión
+5. **Airdrop Implementation**:
+   - Platform configuration (Galxe or Guild.xyz)
+   - Establishment of participation requirements
+   - Socialization and registration period
+   - Verification and token distribution
 
-EthEcuador DAO representa un modelo innovador de organización comunitaria basada en tecnología blockchain, diseñada para fomentar la participación, reconocer contribuciones y gestionar recursos de manera transparente y descentralizada. A través de su sistema de gobernanza tokenizado y mecanismos de financiamiento automatizados, la DAO establece las bases para el crecimiento sostenible del ecosistema web3 en Ecuador.
+6. **Next steps**:
+   - Full activation of governance mechanisms
+   - Processing of first formal proposals
+   - Additional token distribution through approved proposals
+   - Community expansion and project development
 
-La implementación en Arbitrum utilizando Aragon, con el token LATA como mecanismo de gobernanza, proporciona una base técnica sólida con costos operativos minimizados. El modelo de distribución equilibrado entre el tesoro, el equipo núcleo, la comunidad existente y los mecanismos de recompensa establece incentivos alineados para el crecimiento sostenible.
+## 7. Conclusion
 
-Este Yellow Paper establece los parámetros técnicos, económicos y de gobernanza que guían el desarrollo e implementación de EthEcuador DAO, sujetos a refinamiento mediante los propios mecanismos de gobernanza comunitaria aquí descritos.
+EnceboDAO represents an innovative model of community organization based on blockchain technology, designed to encourage participation, recognize contributions, and manage resources in a transparent and decentralized manner. Just as encebollado nourishes the Ecuadorian body, our DAO will nourish Ecuador's web3 ecosystem.
+
+The implementation on Arbitrum using Aragon, with the LATA token as a governance mechanism, provides a solid technical foundation with minimized operating costs. The balanced distribution model, open call, and community airdrop system establish the foundations for inclusive and sustainable growth.
+
+This Yellow Paper establishes the technical, economic, and governance parameters that guide the development and implementation of EnceboDAO, subject to refinement through the community governance mechanisms described herein.
 
 ---
 
-*Este documento representa la especificación técnica de EthEcuador DAO y está sujeto a modificaciones a través de los procesos de gobernanza comunitaria.*
+*This document represents the technical specification of EnceboDAO and is subject to modifications through community governance processes. Take your EnceboDAO to $LATA mi ñaño!*
