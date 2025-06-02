@@ -141,7 +141,7 @@ La emisión de tokens post-lanzamiento se produce mediante:
    - Organización de eventos: 100 LATA por evento pequeño (escalable según impacto)
    - Desarrollo técnico: LATA proporcionales al esfuerzo y valor generado
    - Gestión comunitaria: LATA por tareas administrativas y de coordinación
-   - Asistencia a eventos/llamadas: Los participantes recibirán insignias on-chain intransferibles que podrán canjear por 1 LATA cada una (canje único). Las insignias incluirán protección mediante palabra clave, validez temporal limitada y solo podrán ser reclamadas por asistentes verificados.
+   - Asistencia a eventos/llamadas: Los participantes recibirán insignias on-chain intransferibles que podrán canjear por 1 LATA cada 5 insignias. Las insignias incluirán protección mediante palabra clave, validez temporal limitada y solo podrán ser reclamadas por asistentes verificados.
    - *Valoración superior a las recompensas por donaciones económicas*
 
 2. **Donaciones al Tesoro**:
